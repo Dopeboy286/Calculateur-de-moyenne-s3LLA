@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS3-LLA 2026-2027 | Calculateur de Moyenne - Collège Saint Jean</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- En-tête avec Logos et Titre -->
+    <header>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Basculer le mode">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+
+        <div class="logos-container">
+            <!-- Logo Collège Saint Jean -->
+            <img src="https://user53126.na.imgto.link/public/20261107/bfa0edbef75db8c252e8c317-214065.avif" alt="Collège Saint Jean" class="logo-img">
+            <!-- Logo NS3-LLA par FANFAN-TECH -->
+            <img src="https://user53126.na.imgto.link/public/20261107/428f5d64787b466350b7f02e-214116.avif" alt="NS3-LLA FANFAN-TECH" class="logo-img">
+        </div>
+
+        <h1>Collège Saint Jean - NS3-LLA</h1>
+        <p class="subtitle">Année Académique 2026-2027 • Application de Calcul de Moyenne</p>
+        <span class="developer-badge">Développé par FANFAN-TECH</span>
+    </header>
+
+    <!-- SECTION 1 : Calculateur par Matières (Barème 950 points) -->
+    <div class="card">
+        <h2><i class="fa-solid fa-calculator"></i> Calculateur par Matières (Total Max: 950 Coeffs)</h2>
+        <div class="subjects-grid" id="subjectsContainer">
+            <!-- Injecté dynamiquement par JavaScript -->
+        </div>
+
+        <div class="result-box">
+            <h3>Résultat Global Matières</h3>
+            <div class="score-display"><span id="totalPointsAchieved">0.00</span> <span style="font-size: 1.5rem; opacity: 0.8;">/ 950</span></div>
+            <div style="font-size: 1.2rem; margin-top: 8px;">Moyenne sur 100 : <strong id="moyenneSur100">0.00</strong> / 100</div>
+            <div class="mention-text" id="mentionMatiere">Statut : En attente de notes</div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="calculerMatieres()"><i class="fa-solid fa-rotate"></i> Recalculer</button>
+            <button class="btn btn-outline" onclick="preemplirDemo()"><i class="fa-solid fa-wand-magic-sparkles"></i> Remplir Démo</button>
+            <button class="btn btn-outline" onclick="reinitialiserMatieres()"><i class="fa-solid fa-trash-can"></i> Réinitialiser</button>
+        </div>
+    </div>
+
+    <!-- SECTION 2 : Calculateur en 4 Étapes (sur 100) -->
+    <div class="card">
+        <h2><i class="fa-solid fa-chart-line"></i> Calcul de Moyenne Générale en 4 Étapes</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">Entrez la moyenne obtenue pour chacune des 4 étapes de l'année scolaire (notées sur 100).</p>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <label for="step1">Étape 1 (/100)</label>
+                <input type="number" id="step1" min="0" max="100" placeholder="0 - 100" oninput="calculerEtapes()">
+            </div>
+            <div class="step-card">
+                <label for="step2">Étape 2 (/100)</label>
+                <input type="number" id="step2" min="0" max="100" placeholder="0 - 100" oninput="calculerEtapes()">
+            </div>
+            <div class="step-card">
+                <label for="step3">Étape 3 (/100)</label>
+                <input type="number" id="step3" min="0" max="100" placeholder="0 - 100" oninput="calculerEtapes()">
+            </div>
+            <div class="step-card">
+                <label for="step4">Étape 4 (/100)</label>
+                <input type="number" id="step4" min="0" max="100" placeholder="0 - 100" oninput="calculerEtapes()">
+            </div>
+        </div>
+
+        <div class="result-box" style="background: linear-gradient(135deg, #0f172a 0%, #334155 100%);">
+            <h3>Moyenne Annuelle (4 Étapes)</h3>
+            <div class="score-display" id="moyenneEtapesResult">0.00 <span style="font-size: 1.5rem;">/ 100</span></div>
+            <div class="mention-text" id="mentionEtapes">Statut : En attente</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 : Contact Développeur & Outils -->
+    <div class="card" style="text-align: center;">
+        <h2><i class="fa-solid fa-code"></i> Support & Contact Développeur</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Besoin d'une personnalisation, d'une modification ou d'une assistance technique ? Contactez directement le créateur.</p>
+        
+        <div class="action-buttons" style="justify-content: center;">
+            <a href="https://wa.me/50946183134?text=Bonjour%20FANFAN-TECH,%20je%20souhaite%20des%20informations%20sur%20le%20site%20NS3-LLA." target="_blank" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Contacter le Développeur (+509 4618-3134)
+            </a>
+            <button class="btn btn-accent" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Imprimer / Exporter le Bulletin
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026-2027 Collège Saint Jean - NS3-LLA. Conçu avec excellence par <strong>FANFAN-TECH</strong>.</p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
